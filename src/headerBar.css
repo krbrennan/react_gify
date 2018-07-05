@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.headerBar {
+  padding: 0;
+  height: 10em;
+  background: rgba(45, 52, 54,0.5);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerTitle {
+  margin: 0;
+  font-family: 'Shrikhand', cursive;
+  letter-spacing: 0.4em;
+}

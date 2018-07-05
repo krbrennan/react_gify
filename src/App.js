@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import request from 'superagent';
 import Card from './Card';
 import CardList from './CardList';
+import HeaderBar from './HeaderBar';
+import SearchBar from './SearchBar';
 import './App.css';
+import 'tachyons';
 
   class App extends Component {
     constructor() {
@@ -26,8 +29,11 @@ import './App.css';
         return null;
       }
       return (
-        <div>
-          <CardList cards={this.state.gifs} />
+        <div className='view'>
+          <HeaderBar />
+          <SearchBar>
+            <CardList cards={this.state.gifs} />
+          </SearchBar>
         </div>
       );
     }

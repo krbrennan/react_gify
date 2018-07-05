@@ -1,6 +1,7 @@
 .gifDiv {
   height: auto;
   width: auto;
+  background: rgba(223, 230, 233,0.6);
 }
 .iframeEle {
   margin: 0;
