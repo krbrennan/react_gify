@@ -1,39 +1,73 @@
 import React, { Component } from 'react';
 import request from 'superagent';
-import Card from './Card';
 import CardList from './CardList';
 import HeaderBar from './HeaderBar';
-import SearchBar from './SearchBar';
+import Scroll from './SearchBar';
+import SearchBox from './SearchBox';
 import './App.css';
 import 'tachyons';
 
   class App extends Component {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
+      this.handler = this.handler.bind(this)
       this.state = {
-        gifs: []
+        gifs: [],
+        searchField: '',
+        searched: false
       }
     }
 
-    componentDidMount() {
-      const url = 'https://api.giphy.com/v1/gifs/trending?api_key=21pGD8YTJeDH5f5I9HkUce2bfrSIXWXF&limit=25&rating=R'
-      request
-        .get(url, (err, res) => {
-          this.setState({gifs: res.body.data})
-        })
-        .withCredentials()
+    // componentDidMount() {
+    //
+    //   const url = 'https://api.giphy.com/v1/gifs/trending?api_key=21pGD8YTJeDH5f5I9HkUce2bfrSIXWXF&limit=9&rating=R'
+    //
+      // request
+      //   .get(url, (err, res) => {
+      //     this.setState({gifs: res.body.data})
+      //   })
+      //   .withCredentials()
+      // }
+      componentDidMount() {
+        if(this.state.searched === false) {
+          const url = 'https://api.giphy.com/v1/gifs/trending?api_key=21pGD8YTJeDH5f5I9HkUce2bfrSIXWXF&limit=12&rating=R'
+
+          request
+          .get(url, (err, res) => {
+            this.setState({gifs: res.body.data})
+          })
+          .withCredentials()
+        }
       }
 
-    render = () => {
+
+    handler(data) {
+      this.setState({
+        searchField: data,
+        searched: true
+      });
+      const searchTerm = data
+      const url = `http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=21pGD8YTJeDH5f5I9HkUce2bfrSIXWXF&limit=12&rating=R`
+
+      request
+      .get(url, (err, res) => {
+        this.setState({gifs:res.body.data})
+      })
+      .withCredentials()
+      this.setState({searched:false})
+    }
+
+    render() {
       if(this.state.gifs.length === 0) {
         return null;
       }
       return (
         <div className='view'>
           <HeaderBar />
-          <SearchBar>
+          <SearchBox handlerFromParent={this.handler} className='tc' />
+          <Scroll>
             <CardList cards={this.state.gifs} />
-          </SearchBar>
+          </Scroll>
         </div>
       );
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const SearchBar = (props) => {
+const Scroll = (props) => {
   return(
     <div style={{overflow: 'scroll', height: '75vh'}}>
       {props.children};
@@ -10,4 +10,4 @@ const SearchBar = (props) => {
 };
 
 
-export default SearchBar;
+export default Scroll;

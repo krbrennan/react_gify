@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from './Card';
-import SearchBar from './SearchBar';
 import 'tachyons';
 
 const CardList = (props) => {
