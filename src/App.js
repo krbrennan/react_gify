@@ -4,6 +4,7 @@ import CardList from './CardList';
 import HeaderBar from './HeaderBar';
 import Scroll from './SearchBar';
 import SearchBox from './SearchBox';
+import CurrentlyViewing from './CurrentlyViewing';
 import './App.css';
 import 'tachyons';
 
@@ -18,16 +19,6 @@ import 'tachyons';
       }
     }
 
-    // componentDidMount() {
-    //
-    //   const url = 'https://api.giphy.com/v1/gifs/trending?api_key=21pGD8YTJeDH5f5I9HkUce2bfrSIXWXF&limit=9&rating=R'
-    //
-      // request
-      //   .get(url, (err, res) => {
-      //     this.setState({gifs: res.body.data})
-      //   })
-      //   .withCredentials()
-      // }
       componentDidMount() {
         if(this.state.searched === false) {
           const url = 'https://api.giphy.com/v1/gifs/trending?api_key=21pGD8YTJeDH5f5I9HkUce2bfrSIXWXF&limit=12&rating=R'
@@ -47,13 +38,13 @@ import 'tachyons';
         searched: true
       });
       const searchTerm = data
-      const url = `http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=21pGD8YTJeDH5f5I9HkUce2bfrSIXWXF&limit=12&rating=R`
+      const url = `http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=21pGD8YTJeDH5f5I9HkUce2bfrSIXWXF&limit=69&rating=R`
 
       request
-      .get(url, (err, res) => {
-        this.setState({gifs:res.body.data})
-      })
-      .withCredentials()
+        .get(url, (err, res) => {
+          this.setState({gifs:res.body.data})
+        })
+        .withCredentials()
       this.setState({searched:false})
     }
 
@@ -64,7 +55,8 @@ import 'tachyons';
       return (
         <div className='view'>
           <HeaderBar />
-          <SearchBox handlerFromParent={this.handler} className='tc' />
+          <SearchBox handlerFromParent={this.handler} />
+          <CurrentlyViewing current={this.state.searchField}/>
           <Scroll>
             <CardList cards={this.state.gifs} />
           </Scroll>

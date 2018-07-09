@@ -2,33 +2,16 @@ import React, { Component } from 'react';
 import './searchBox.css';
 import request from 'superagent';
 
-// const SearchBox = (props) => {
-//   return (
-//     <form>
-//       <label>
-//         <input
-//           type='search'
-//           placeholder='Search Gifs!'
-//           className='search-box tc pa3 ba b--green bg-lightest-blue'
-//         />
-//       </label>
-//       <input type='submit' value='Submit' onSubmit={this.handler} />
-//     </form>
-//
-//   );
-// }
-
-
 
 class SearchBox extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
+
     this.state = {
       input: ''
     };
-
   }
 
   submitHandler(event) {
@@ -37,7 +20,6 @@ class SearchBox extends Component {
   }
 
   handleChange(event) {
-    console.log(this.state.input)
     this.setState({
       input: event.target.value
     });
@@ -48,15 +30,14 @@ class SearchBox extends Component {
 
   render() {
     return(
-        <form onSubmit={this.submitHandler}>
-            <input
-              type='text'
-              id='theInput'
-              placeholder='Search Gifs!'
-              className='search-box tc center pa3 ba b--green bg-lightest-blue'
-              onChange={this.handleChange}
+        <form onSubmit={this.submitHandler} className='tc center pv3'>
+          <input
+            type='text'
+            id='theInput'
+            placeholder='Search Gifs!'
+            className='center tc input-reset ba b--black-20 pa3 mb2 db w-80'
+            onChange={this.handleChange}
             />
-            <input type='submit' />
         </form>
     );
   }
