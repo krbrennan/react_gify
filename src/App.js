@@ -38,7 +38,7 @@ import 'tachyons';
         searched: true
       });
       const searchTerm = data
-      const url = `http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=21pGD8YTJeDH5f5I9HkUce2bfrSIXWXF&limit=69&rating=R`
+      const url = `https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=21pGD8YTJeDH5f5I9HkUce2bfrSIXWXF&limit=69&rating=R`
 
       request
         .get(url, (err, res) => {

@@ -1,9 +1,11 @@
 {
   "name": "giphy",
+  "homepage": "http://krbrennan.github.io/react_gify",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "gh-pages": "^1.2.0",
     "giphy-js-sdk-core": "^1.0.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -14,7 +16,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "tachyons": "^4.10.0"
