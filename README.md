@@ -1,4 +1,4 @@
-<h1> Check It Out <a href="https://krbrennan.github.io/react_gify/" target="_blank" rel="noreferrer">LIVE</a>
+<h1> Check It Out <a href="https://krbrennan.github.io/react_gify/" target="_blank" rel="noreferrer">LIVE</a></h1>
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
