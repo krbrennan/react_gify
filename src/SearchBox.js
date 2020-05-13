@@ -34,8 +34,8 @@ class SearchBox extends Component {
           <input
             type='text'
             id='theInput'
-            placeholder='Search Gifs!'
-            className='center tc input-reset ba b--black-20 pa3 mb2 db w-80'
+            placeholder='Search Gifs Here!'
+            className='center tc input-reset ba b--black-20 pa3 mb2 db w-80 search-box'
             onChange={this.handleChange}
             />
         </form>

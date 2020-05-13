@@ -1,0 +1,18 @@
+.card-collection-div::-webkit-scrollbar {
+    width: 2em;
+}
+
+.card-collection-div::-webkit-scrollbar-track {
+    box-shadow: inset 6px 12px 6px -6px rgba(0, 0, 0, 0.863);
+  }
+   
+.card-collection-div::-webkit-scrollbar-thumb {
+    background-color: rgb(48, 44, 44);
+    outline: 1px solid rgb(53, 113, 173);
+}
+
+.card-collection-div {
+    margin: 0 auto;
+    max-width: 90vw;
+    margin-bottom: 10em;
+}

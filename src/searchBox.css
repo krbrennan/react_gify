@@ -1,5 +1,5 @@
 
 .search-box {
-  background: green;
-  height: 3em;
+  width: 50%;
+  border: 2mm inset rgba(68, 101, 209, 0.6);
 }

@@ -1,10 +1,10 @@
 import React from 'react';
-
+import './searchBar.css';
 
 const Scroll = (props) => {
   return(
-    <div style={{overflow: 'scroll', height: '75vh'}}>
-      {props.children};
+    <div class='card-collection-div' style={{overflow: 'scroll', height: '75vh'}}>
+      {props.children}
     </div>
   );
 };
